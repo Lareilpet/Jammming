@@ -4,10 +4,10 @@ const redirectUri = 'http://localhost:3000/';
 const user = {
   id: ''
 };
-const searchTerm='';
+const term='';
 
 
-const accessToken = '';
+let accessToken = '';
 
 
 const Spotify={
@@ -26,12 +26,12 @@ const Spotify={
     }
     window.setTimeout(() => accessToken = '', expiresIn * 1000);
     window.history.pushState('Access Token', null, '/');
-}
+},
 
 
 search(term) {
-   let searchTerm = term;
-   const endpoint = 'https://api.spotify.com/v1/search?type=track&q=${searchTerm}';
+
+   const endpoint = 'https://api.spotify.com/v1/search?type=track&q=${term}';
 
     fetch(endpoint, {
        headers: {Authorization: 'Bearer ${accessToken}''}
@@ -58,7 +58,7 @@ search(term) {
     }).then(jsonResponse => {
       renderResponse(jsonResponse);
     });
-  }
+  },
 
 
 savePlaylist(playlistName, trackURIs) {

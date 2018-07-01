@@ -34,8 +34,8 @@ class App extends React.Component {
         id: '309'
       }*/
     ]};
-
-    this.state.playlistName = "Party";
+    //this.state.term = "";
+    this.state.playlistName = "";
     this.state.playlistTracks = [
     /*  {name: 'Jump',
       artist: 'Prince',
@@ -85,9 +85,9 @@ updatePlaylistName(name) {
   )
 }
 
-search(searchTerm) {
-  Spotify.search(searchTerm);
-  console.log(searchTerm);
+search(term) {
+  Spotify.search(term);
+//  console.log(searchTerm);
 }
 
 savePlaylist() {
