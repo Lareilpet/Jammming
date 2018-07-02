@@ -85,8 +85,8 @@ updatePlaylistName(name) {
   )
 }
 
-search() {
-  Spotify.search();
+search(term) {
+  Spotify.search(term);
 //  console.log(searchTerm);
 }
 

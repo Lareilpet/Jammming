@@ -49,8 +49,8 @@ search(term) {
                           album: track.album,
                           URI: track.uri
                         };
-          return newTracks;
   })
+    return newTracks;
 });
 },
 
