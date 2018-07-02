@@ -29,6 +29,7 @@ const Spotify={
 search(term) {
   const url='https://api.spotify.com/v1/search?type=track&q=';
    let endpoint = `${url}${term}`;
+   let accessToken = Spotify.getAccessToken();
 
     fetch(endpoint,
       { headers: {Authorization: `Bearer ${accessToken}`}}
@@ -84,7 +85,7 @@ createPlaylist(newPlaylist) {
 
   let url = 'https://api.spotify.com/v1/users/';
   let playlist_id = " ";
-  let user_id= " ";
+  let user_id= Spotify.getUser();
   let headers={Authorization: `Bearer ${accessToken}`};
   let endpoint = `${url}${user_id}/playlists`;
 
@@ -107,7 +108,7 @@ createPlaylist(newPlaylist) {
 addPlaylistTracks(newTrackURIs) {
   let trackURIs = [];
   let url = 'https://api.spotify.com/v1/users/';
-  let user_id=" ";;
+  let user_id=Spotify.getUser();
   let playlist_id = " ";
   let endpoint = `${url}${user_id}/playlists/${playlist_id}/tracks`;
   fetch(endpoint,
