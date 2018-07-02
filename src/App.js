@@ -85,15 +85,18 @@ updatePlaylistName(name) {
   )
 }
 
-search(term) {
-  Spotify.search(term);
+search() {
+  Spotify.search();
 //  console.log(searchTerm);
 }
 
 savePlaylist() {
   Spotify.savePlaylist();
-//  const trackURIs = this.playlistTracks.map(uri => {
-  //  return trackURIs;
+  this.setState (
+    {playlistName: 'New Playlist',
+    playlistTracks: []}
+  )
+
   }
 
 
@@ -102,7 +105,7 @@ render () {
     <div>
      <h1>Ja<span className="highlight">mmm</span>ing</h1>
        <div class="App">
-         <SearchBar onSearch={this.state.search}/>
+         <SearchBar onSearch={this.search}/>
          <div className="App-playlist">
            <SearchResults searchResults = {this.state.searchResults} onAdd={this.state.addTrack} />
            <Playlist playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName}
