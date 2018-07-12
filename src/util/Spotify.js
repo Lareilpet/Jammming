@@ -189,7 +189,7 @@ search(term) {
 
    return fetch(endpoint,
 
-      { headers: {Authorization: `Bearer ${accessToken}`}}
+      {headers: {Authorization: `Bearer ${accessToken}`}}
 
         ).then(response => {
 
@@ -209,17 +209,17 @@ search(term) {
 
          if (jsonResponse.tracks.items) {
 
-           return jsonResponse.tracks.items.map(item => ({
+           return jsonResponse.tracks.items.map(track => ({
 
-             id: item.id,
+             id: track.id,
 
-             name: item.name,
+             name: track.name,
 
-             artist: item.artists[0].name,
+             artist: track.artists[0].name,
 
-             album: item.album.name,
+             album: track.album.name,
 
-             URI: item.uri
+             URI: track.uri
 
            }))
 
@@ -257,7 +257,7 @@ getUser () {
 });
 },
 
-createPlaylist(newPlaylist) {
+createPlaylist(newPlaylistName) {
 
   let url = 'https://api.spotify.com/v1/users/';
   let playlist_id = "";

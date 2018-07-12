@@ -79,15 +79,17 @@ removeTrack(track) {
   )
 }
 
-updatePlaylistName(name) {
+updatePlaylistName(newPlaylistName) {
   this.setState (
-    {playlistName: name.target.value}
+    {playlistName: newPlaylistName}
   )
 }
 
 search(term) {
-  Spotify.search(term);
+//  Spotify.search(term);
 //  console.log(searchTerm);
+Spotify.search(term).then(tracks =>
+       this.setState({searchResults: tracks}));
 }
 
 savePlaylist() {
