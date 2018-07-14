@@ -276,8 +276,7 @@ createPlaylist(newPlaylistName) {
     }, networkError => {
       console.log(networkError.message)
     }).then(jsonResponse => {
-        let playlist_id = jsonResponse;
-        return playlist_id;
+        return jsonResponse.playlist_id;
 });
 },
 

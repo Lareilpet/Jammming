@@ -60,11 +60,13 @@ this.updatePlaylistName = this.updatePlaylistName.bind(this);
 this.savePlaylist = this.savePlaylist.bind(this);
   }
 
-  addTrack(track) {
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-  return this.state.playlistTracks;
+addTrack(track) {
+    let playlistTracks = this.state.playlistTracks;
+    if (playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+  return playlistTracks;
 } else{
-   this.state.playlistTracks.push(track);
+    let updatedPlaylistTracks = this.state.playlistTracks.push(track);
+    return updatedPlaylistTracks;
 }
 }
 
