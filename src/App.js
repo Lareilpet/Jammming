@@ -61,30 +61,30 @@ this.savePlaylist = this.savePlaylist.bind(this);
   }
 
 addTrack(track) {
-    let playlistTracks = this.state.playlistTracks;
-    if (playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-  return playlistTracks;
-} else{
-    let updatedPlaylistTracks = this.state.playlistTracks.push(track);
-    return updatedPlaylistTracks;
+
+    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+  return;
+} else {
+    this.setState (
+      {playlistTracks:  this.state.playlistTracks.push(track)}
+    );
 }
+return this.state.playlistTracks;
 }
 
 removeTrack(track) {
-    let playlistTracks = this.state.playlistTracks;
-    let newPlaylistTracks = playlistTracks.filter(currentTrack => {
-      return currentTrack !== track.id;
-  });
+
   this.setState (
-    {playlistTracks: newPlaylistTracks},
+    {playlistTracks:this.state.playlistTracks.filter(currentTrack => {
+      return currentTrack !== track.id;})},
     {searchResults: Spotify.search()}
-  )
+  );
 }
 
 updatePlaylistName(newPlaylistName) {
   this.setState (
     {playlistName: newPlaylistName}
-  )
+  );
 }
 
 search(term) {
@@ -114,7 +114,7 @@ render () {
            <SearchResults searchResults = {this.state.searchResults} onAdd={this.state.addTrack} />
            <Playlist playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName}
             onRemove={this.state.removeTrack} onNameChange = {this.state.updatePlaylistName}
-                     onSave={this.state.savePlaylist} />
+                     onSave={this.state.savePlaylist}  />
          </div>
         </div>
      </div>

@@ -7,27 +7,16 @@ class Track extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
   //  this.renderAction = this.renderAction.bind(this);
-  }
+ }
 
-  addTrack() {
+  addTrack(track) {
     this.props.onAdd(this.props.track);
   }
+
 
   removeTrack() {
     this.props.onRemove(this.props.track);
   }
-
- /*renderAction() {
-     return (
-     <div className="Track-action">
-     {this.props.isRemoval ?  (
-           <a onClick={this.removeTrack}>-</a>
-         ) : (
-           <a onClick={this.addTrack}>+</a>
-         )}
-      </div>
-);
-}*/
 
 
   render() {
@@ -48,4 +37,5 @@ class Track extends React.Component {
    );
 }
 }
+
 export default Track;
